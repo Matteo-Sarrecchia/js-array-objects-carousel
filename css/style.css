@@ -11,10 +11,10 @@ body{
 #container{
     background-color: blueviolet;
     border: 1px solid black;
-    /* width: 80%; */
+    width: 600px;
     margin: auto;
     margin-top: 50px;
-    min-height: 300px;
+    position: relative;
 }
 
 .item{
@@ -56,10 +56,27 @@ body{
     display: block;
 }
 
+.hidden{
+    display: none;
+}
+
 .arrowNext, .arrowPrev{
     background-color: rgba(0, 0, 0, 0.5);
     width: 30px;
     height: 30px;
     border-radius: 50%;
     border: 1px solid red;
+    position: absolute;
+}
+
+.arrowNext{
+        z-index: 899;
+        top: 10px;
+        right: 20px;
+}
+
+.arrowPrev{
+    z-index: 899;
+    top: 10px;
+    left: 20px;
 }

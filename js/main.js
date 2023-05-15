@@ -50,4 +50,51 @@ console.log(item);
 item[positionItem].classList.add("active");
 
 
+// aggiungo evento al click arrow next
+arrowNext.addEventListener("click",
+    
+    function(){
 
+        if(positionItem < images.length -1){
+
+        // tolgo la classe active al primo elemento
+        item[positionItem].classList.remove("active");
+       
+        // passo all'elemento successivo
+        positionItem++
+        
+        // aggiungo la classe active all'elemento successivo
+        item[positionItem].classList.add("active");
+
+        // se sono all'ultimo elemento
+        if (positionItem === images.length -1){
+           item[positionItem].classList.remove("active")
+        // item[positionItem].classList.add("active");
+        }
+        }     
+    }
+);
+
+// aggiungo evento al click arrow prev
+arrowPrev.addEventListener("click",
+
+    function(){
+
+        if(positionItem === images.length -1){
+
+        // tolgo la classe active al primo elemento
+        item[positionItem].classList.remove("active");
+        
+        // passo all'elemento successivo
+        positionItem--
+        
+        // aggiungo la classe active all'elemento successivo
+        item[positionItem].classList.add("active");
+
+        // se sono all'ultimo elemento
+        // if (positionItem < images.length -1){
+        //     arrowPrev.classList.add("hidden");
+        // }
+        }     
+    }
+)
