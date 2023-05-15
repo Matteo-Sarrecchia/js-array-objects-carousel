@@ -69,7 +69,6 @@ arrowNext.addEventListener("click",
             
             // aggiungo la classe active all'elemento successivo
             item[positionItem].classList.add("active");
-
         }     
     }
 );

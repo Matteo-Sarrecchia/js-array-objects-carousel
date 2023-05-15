@@ -9,26 +9,29 @@ body{
 }
 
 #container{
-    background-color: blueviolet;
-    border: 1px solid black;
     width: 600px;
+    height: 600px;
     margin: auto;
     margin-top: 50px;
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 .item{
-    border: 1px solid black;
     min-height: 100px;
     width: 600px;
+    border-radius: 20px;
     margin: auto;
     position: relative;
     display: none;
 }
 
 .item img{
-    width: 100%;
+    width: 600px;
+    max-height: 600px;
     display: block;
+    border-radius: 20px;
 }
 
 .item h2, .item div{
@@ -61,22 +64,27 @@ body{
 }
 
 .arrowNext, .arrowPrev{
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    border: 1px solid red;
+    border: 2px solid rgb(255, 255, 255);
     position: absolute;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
 }
 
 .arrowNext{
         z-index: 899;
-        top: 10px;
+        top: 200px;
         right: 20px;
 }
 
 .arrowPrev{
     z-index: 899;
-    top: 10px;
+    top: 200px;
     left: 20px;
 }
