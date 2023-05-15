@@ -1,7 +1,11 @@
 // variabili globali
 const container = document.getElementById("container");
 let arrowNext = document.querySelector('.arrowNext');
-let arrowPrev = document.querySelector(".arrowPrev")
+let arrowPrev = document.querySelector(".arrowPrev");
+let arrowPlay = document.querySelector(".arrowPlay");
+let arrowStop = document.querySelector(".arrowStop");
+let arrowInverse = document.querySelector(".arrowInverse");
+var clock;
 
 // array di oggetti
 const images = [
@@ -51,9 +55,75 @@ item[positionItem].classList.add("active");
 
 
 // aggiungo evento al click arrow next
-arrowNext.addEventListener("click",
+arrowNext.addEventListener("click",function (){nextImage()});
+
+// aggiungo evento al click arrow prev
+arrowPrev.addEventListener("click",function (){prevImage()});
+
+// aggiungo evento al click play
+arrowPlay.addEventListener("click",function (){nextImageAuto()});
+
+// aggiungo evento al click stop
+arrowStop.addEventListener("click",function (){clearInterval(clock)});
+
+// aggiungo evento al click inversione
+arrowInverse.addEventListener("click",function (){prevImageAuto()});
+
+
+
+
+
+
+
+
+
+// ******************** FUNZIONI ********************
+
+// funzione per far scorre le immagini avanti manualmente
+function nextImage (){
+    if(positionItem <= images.length - 1){
+
+        // tolgo la classe active al primo elemento
+        item[positionItem].classList.remove("active");
     
-    function(){
+        // se sono all'ultimo elemento
+        if (positionItem === images.length - 1){
+            positionItem = 0
+        } else {
+            // passo all'elemento successivo
+            positionItem++
+        }
+
+        // aggiungo la classe active all'elemento successivo
+        item[positionItem].classList.add("active");
+    }     
+}
+
+// funzione per far scorre le immagini indietro manualmente
+function prevImage(){
+
+    if(positionItem <= images.length -1){
+
+        // tolgo la classe active al primo elemento
+        item[positionItem].classList.remove("active");
+        
+        // se sono all'ultimo elemento
+        if (positionItem === 0){
+            positionItem = 4
+        }else {
+            // passo all'elemento successivo
+            positionItem--
+        }
+        
+        // aggiungo la classe active all'elemento successivo
+        item[positionItem].classList.add("active");
+    }     
+}
+
+// funzioni per far scorrere le immagini avanti automaticamente
+function nextImageAuto(){
+    // aggiungo timer per far scorrere le immagini
+    clock = setInterval(() => {
         if(positionItem <= images.length - 1){
 
             // tolgo la classe active al primo elemento
@@ -70,14 +140,13 @@ arrowNext.addEventListener("click",
             // aggiungo la classe active all'elemento successivo
             item[positionItem].classList.add("active");
         }     
-    }
-);
+    }, 2000)
+}
 
-// aggiungo evento al click arrow prev
-arrowPrev.addEventListener("click",
-
-    function(){
-
+// funzione per far scorre le immagini indietro automaticamente
+function prevImageAuto(){
+    // aggiungo timer per far scorrere le immagini
+    clock = setInterval(() => {
         if(positionItem <= images.length -1){
 
             // tolgo la classe active al primo elemento
@@ -94,5 +163,5 @@ arrowPrev.addEventListener("click",
             // aggiungo la classe active all'elemento successivo
             item[positionItem].classList.add("active");
         }     
-    }
-)
+    }, 2000)
+}
